@@ -1,103 +1,94 @@
-```markdown
 # 📝 To-Do List Web App
 
-A simple and interactive To-Do list web app with localStorage support, real-time status tracking, and edit/delete functionalities. Made using **HTML**, **CSS**, and **JavaScript**.
+A clean, responsive, and interactive To-Do list web application that helps you stay productive and manage your daily tasks effectively.
+
+🚀 **Live Demo**: [Click Here](https://ybhavesh-0915.github.io/new-To-Do-List/)
 
 ---
 
-## 📁 Project Structure
+## ✨ Features
+
+- ✅ Add new tasks with a timestamp
+- ✏️ Edit existing tasks
+- ❌ Delete unwanted tasks
+- ✔️ Mark tasks as complete/incomplete
+- 📊 Progress bar for task completion
+- 🎉 Confetti animation when all tasks are completed
+- 🔄 Sync with localStorage (persists even after refresh)
+- 🌐 Auto reload when updated in another browser tab
+- 📱 Fully responsive with media queries
+
+---
+
+## 🧱 Built With
+
+- **HTML5** – Structure
+- **CSS3** – Styling (`main.css` + `mediaquery.css`)
+- **JavaScript (ES6)** – Functionality (`app.js`)
+- **localStorage** – Data Persistence
+
+---
+
+## 🗂️ Folder Structure
 
 ```
 
-📦 ToDo-App/
-├── index.html          # Main HTML page
-├── main.css            # Core styling
-├── mediaquery.css      # Responsive design styles
-├── app.js              # Main JavaScript logic
-└── README.md           # Project description
+📦 new-To-Do-List/
+├── index.html
+├── main.css
+├── mediaquery.css
+├── app.js
+└── README.md
 
 ````
 
 ---
 
-## 🚀 Features
+## ⚙️ How to Run Locally
 
-- Add, edit, and delete tasks
-- Track completed tasks with a progress bar
-- Save data using `localStorage`
-- Confetti animation on 100% task completion 🎉
-- Auto reload on new task addition from other tab
-- Timestamp for every task
-- Responsive layout (via `mediaquery.css`)
-
----
-
-## 🔧 How to Use
-
-1. **Clone or Download** the repo:
-
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/todo-app.git
-cd todo-app
+git clone https://github.com/ybhavesh-0915/new-To-Do-List.git
+cd new-To-Do-List
 ````
 
-2. **Open `index.html`** in any browser:
+2. Open `index.html` in your browser:
 
 ```bash
-open index.html
+open index.html  # For MacOS
+# or
+start index.html # For Windows
 ```
 
-3. **Start Adding Tasks!** ✨
-
 ---
 
-## 📸 Screenshot
+## 🔐 Data Storage
 
-> *(Add your screenshot here)*
-
----
-
-## 🛠️ Tech Stack
-
-* HTML5
-* CSS3 (Flexbox + Media Queries)
-* Vanilla JavaScript (ES6+)
-
----
-
-## ⚙️ LocalStorage Info
-
-All tasks are stored in your browser's `localStorage` under the key:
+All tasks are saved in your browser's `localStorage` under the key:
 
 ```
 "task"
 ```
 
-So data remains persistent even after page refresh or browser restart.
+So no server or backend required. Your data stays on your machine.
 
 ---
 
-## 📌 To-Do (Improvements)
+## 🧠 Future Improvements
 
-* Add drag & drop reordering
 * Dark mode toggle 🌙
-* Task filtering (All / Completed / Incomplete)
+* Task filtering (All, Active, Completed)
+* Export tasks as `.txt` or `.json`
+* Drag & drop reordering
 
 ---
 
-## 📃 License
+## 🙋‍♂️ Author
 
-This project is licensed under the MIT License.
-
----
-
-## ✍️ Author
-
-Made with ❤️ by \[Your Name]
-
-```
+Made with ❤️ by [Bhavesh Yadav](https://github.com/ybhavesh-0915)
 
 ---
 
-Bhai agar tu mujhe screenshot ya final folder structure bhi bhejde, toh README aur bhi improve karke de sakta hoon including image, badges, etc.
-```
+## 📄 License
+
+This project is licensed under the **MIT License** - feel free to use it!
