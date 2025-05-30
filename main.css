@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    height: 100dvh;
+    background-color: #202020;
+    color: #fff;
+    /* overflow: hidden; */
+}
+
+header {
+    height: 45px;
+    padding: 8px;
+    background-color: #303030;
+    border-bottom: 1px solid #505050;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info .list-count {
+    padding: 3px 8px;
+    background-color: transparent;
+    border-radius: 7px;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.progressBar{
+    /* padding: 3px; */
+    margin-left: 50px;
+    height: 25px;
+    width: 200px;
+    background-color: #404040;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}.progressBar #progress{
+    background-color: #00ff7f;
+    height: 100%;
+    width: 0%;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.menu {
+    height: 28px;
+    width: 28px;
+    padding: 0 5px;
+    background-color: #404040;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+}
+
+.menu .icon {
+    color: #fff;
+}
+
+.menu .menu-container {
+    width: 200px;
+    background-color: #404040;
+    border: 1px solid #505050;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    display: none;
+}
+
+.menu-container .user-icon {
+    text-align: center;
+    font-size: 80px;
+}
+
+.menu-container .user-detail {
+    padding: 8px;
+    overflow: hidden;
+}
+
+.menu-container .user-detail .name {
+    padding: 5px;
+    background-color: #505050;
+    border-bottom: 1px solid #404040;
+    border-radius: 5px 5px 0 0;
+    font-size: 15px;
+    overflow: hidden;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-container .user-detail .email {
+    padding: 5px;
+    background-color: #505050;
+    border-radius: 0 0 5px 5px;
+    font-size: 15px;
+    overflow: hidden;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-container .menu-btn {
+
+    background-color: #505050;
+    border-top: 1px solid #606060;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu-container .menu-btn .menu-in {
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-container .menu-btn .menu-out {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-container .menu-btn:hover {
+    background-color: #606060;
+}
+
+.menu:hover .menu-container {
+    display: block !important;
+}
+
+main {
+    margin: 15px 0;
+    padding: 0 5px 0 8px;
+    height: calc(100dvh - 160px);
+    border-radius: 5px;
+    overflow: auto;
+    /* direction: rtl; */
+    display: flex;
+    gap: 15px;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+main::-webkit-scrollbar {
+    /* background-color: red; */
+    width: 8px;
+}
+main::-webkit-scrollbar-thumb{
+    background-color: #484848;
+    border: 2px solid #202020;
+}
+
+.list {
+    width: 95%;
+    /* margin-bottom: 8px; */
+    padding: 8px;
+    background-color: #303030;
+    border-radius: 5px;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    direction: ltr;
+    flex-shrink: 0;
+    border: 2px solid #505050;
+    
+}
+.list-detail {
+    margin-left: 10px;
+    /* display: grid; */
+    /* align-items: center; */
+    /* grid-template-columns: auto; */
+    position: relative;
+}
+
+.list-detail .check {
+    height: 20px;
+    width: 20px;
+    /* margin-right: 8px; */
+    grid-row: 1 / span 2;
+    cursor: pointer;
+    appearance: none;
+    background-color: #303030;
+    border: 2px solid #505050;
+    border-radius: 50%;
+    position: absolute;
+    top: 0%;
+    left: -28px;
+    transform: translate(0%,50%);
+}
+
+.list-detail .check:checked{
+    border-color: #00ff7f;
+}
+
+.list-detail .check:checked:after{
+    content: "\EB7B";
+    font-family: "remixicon";
+    position: absolute;
+    color: #00ff7f;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 15px;
+}
+
+.list-detail .check:checked~.list-title {
+    text-decoration: line-through;
+}
+
+.list-detail .time-stamp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: center;
+    color: grey;
+    font-size: 12px;
+}
+
+.list-detail .time-stamp .done {
+    display: none;
+}
+
+.list-detail .check:checked~.time-stamp .done {
+    display: block !important;
+}
+
+.list-btn {
+    display: flex;
+    gap: 5px;
+    align-items: center
+}
+
+.list-btn .edit-btn,
+.del-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #484848;
+    border: 0;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.list-btn .edit-btn:hover,
+.del-btn:hover {
+    background-color: #606060;
+}
+
+.list-btn .edit-btn:focus {
+    background-color: #00bfff;
+}
+
+.list-btn .del-btn:focus {
+    background-color: #ff0000;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    padding: 18px;
+    background-color: #303030;
+    border-top: 1px solid #505050;
+    display: flex;
+    justify-content: center;
+}
+
+footer .add-container {
+    width: 100%;
+    padding: 5px;
+    background-color: #202020;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.add-container input[type=text] {
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    border: 0;
+    font-size: 16px;
+    outline: none;
+    color: #fff;
+}
+
+.add-container .add-btn {
+    height: 100%;
+    width: 35px;
+    background-color: #303030;
+    border: 0;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-container .add-btn:hover {
+    background-color: #404040;
+}
+
+.add-container .add-btn:focus {
+    background-color: #00ff7f;
+}
+

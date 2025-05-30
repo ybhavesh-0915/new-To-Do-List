@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo list</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="main-mediaQuery.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section class="list-body">
+        <!-- to do list page -->
+        <header>
+            <div class="title">To Do List</div>
+            <section class="info">
+                <div class="progressBar">
+                    <div id="progress"></div>
+                    <div class="list-count"><i class="icon ri-list-check-3"></i><span id="counter">0/0</span></div>
+                </div>
+                
+            </section>
+        </header>
+
+        <main></main>
+
+        <footer>
+            <form class="add-container" action="#">
+                <input type="text" id="taskInput" name="task" placeholder="Add your task">
+                <button type="submit" class="add-btn" id="taskAddBtn"><i class="icon ri-add-large-fill"></i></button>
+            </form>
+        </footer>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
