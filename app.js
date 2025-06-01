@@ -4,7 +4,7 @@ let editIdx = null;
 let taskInput = document.getElementById("taskInput");
 let taskAddBtn = document.getElementById("taskAddBtn");
 let addForm = document.querySelector("form");
-let completeTask
+let completeTask =0;
 
 window.addEventListener("load", () => {
     for (let i = 0; i < localStorage.length; i++) {
@@ -103,7 +103,6 @@ let updateToDo = () => {
 let deleteTask = (idx) => {
     taskArr.splice(idx, 1);
     updateToDo();
-    updateStat()
 };
 
 let toggleTaskComplete = (idx) => {
@@ -118,7 +117,7 @@ let toggleTaskComplete = (idx) => {
     })
     localStorage.setItem("task", JSON.stringify(taskArr))
     updateStat();
-    if (taskArr.lenght != 0 && completeTask == taskArr.length) {
+    if (taskArr.length != 0 && completeTask == taskArr.length) {
 
         fire(0.25, {
             spread: 26,
