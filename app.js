@@ -4,12 +4,16 @@ let editIdx = null;
 let taskInput = document.getElementById("taskInput");
 let taskAddBtn = document.getElementById("taskAddBtn");
 let addForm = document.querySelector("form");
+let completeTask
 
 window.addEventListener("load", () => {
-    if (localStorage.length != 0) {
-        taskArr = JSON.parse(localStorage.getItem("task"))
-        updateToDo();
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i)=="task") {
+            taskArr = JSON.parse(localStorage.getItem("task"))
+            updateToDo();
+        }
     }
+
 })
 window.addEventListener("storage", () => {
     new Promise((resolve, reject) => {
@@ -28,50 +32,14 @@ window.addEventListener("storage", () => {
 })
 
 function updateStat() {
-    taskArr.forEach((ele, idx) => {
-        if (ele.completed) {
-            document.getElementsByClassName("list")[idx].setAttribute("style", "border-color: #00ff7f;")
-        } else {
-            document.getElementsByClassName("list")[idx].removeAttribute("style")
-
-        }
-    })
-    let completeTask = taskArr.filter((ele) => {
+    completeTask = taskArr.filter((ele) => {
         return ele.completed == true
     }).length
     let totalTask = taskArr.length;
-    let percentTaskComplete = completeTask / totalTask * 100;
+    let percentTaskComplete = totalTask!=0? completeTask / totalTask * 100:0;
     document.getElementById("progress").style.width = `${percentTaskComplete}%`;
     document.getElementById("counter").innerText = `${completeTask}/${totalTask}`
-    if (taskArr.lenght != 0 && completeTask == totalTask) {
-
-        fire(0.25, {
-            spread: 26,
-            startVelocity: 55,
-        });
-
-        fire(0.2, {
-            spread: 60,
-        });
-
-        fire(0.35, {
-            spread: 100,
-            decay: 0.91,
-            scalar: 0.8,
-        });
-
-        fire(0.1, {
-            spread: 120,
-            startVelocity: 25,
-            decay: 0.92,
-            scalar: 1.2,
-        });
-
-        fire(0.1, {
-            spread: 120,
-            startVelocity: 45,
-        });
-    }
+    console.log(percentTaskComplete);
 }
 
 function timeStamp() {
@@ -79,7 +47,7 @@ function timeStamp() {
     let hours = date.getHours() % 12;
     let minutes = (date.getMinutes() >= 10) ? date.getMinutes() : 0 + "" + date.getMinutes();
     let ampm = (date.getHours() >= 12) ? "PM" : "AM"
-    let timeStamp = `${(hours>=10)? "":"0"}${hours}:${minutes} ${ampm}`
+    let timeStamp = `${(hours >= 10) ? "" : "0"}${hours}:${minutes} ${ampm}`
     return timeStamp
 }
 
@@ -135,12 +103,50 @@ let updateToDo = () => {
 let deleteTask = (idx) => {
     taskArr.splice(idx, 1);
     updateToDo();
+    updateStat()
 };
 
 let toggleTaskComplete = (idx) => {
     taskArr[idx].completed = !taskArr[idx].completed;
+    taskArr.forEach((ele, idx) => {
+        if (ele.completed) {
+            document.getElementsByClassName("list")[idx].setAttribute("style", "border-color: #00ff7f;")
+        } else {
+            document.getElementsByClassName("list")[idx].removeAttribute("style")
+
+        }
+    })
     localStorage.setItem("task", JSON.stringify(taskArr))
     updateStat();
+    if (taskArr.lenght != 0 && completeTask == taskArr.length) {
+
+        fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        });
+
+        fire(0.2, {
+            spread: 60,
+        });
+
+        fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        });
+    }
 }
 
 let editTask = (idx) => {

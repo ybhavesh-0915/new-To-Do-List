@@ -163,8 +163,8 @@ header {
 }
 
 main {
-    margin: 15px 0;
-    padding: 0 5px 0 8px;
+    /* margin: 15px 0; */
+    padding: 15px 5px 15px 8px;
     height: calc(100dvh - 160px);
     border-radius: 5px;
     overflow: auto;
@@ -175,19 +175,22 @@ main {
     align-items: center;
     flex-direction: column;
     overflow: auto;
+    scrollbar-color: #404040 #212121;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
-main::-webkit-scrollbar {
-    /* background-color: red; */
+/* main::-webkit-scrollbar {
+     background-color: red; 
     width: 8px;
 }
 main::-webkit-scrollbar-thumb{
     background-color: #484848;
     border: 2px solid #202020;
-}
+} */
 
 .list {
-    width: 95%;
+    width: 98%;
     /* margin-bottom: 8px; */
     padding: 8px;
     background-color: #303030;
